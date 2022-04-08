@@ -105,6 +105,7 @@ body {
     height: 4.8vh;
     min-height: 4.8vh;
     width: 18vh;
+    min-width: 10vh;
     justify-content: center;
     align-items: center;
 }

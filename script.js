@@ -31,7 +31,7 @@ const gameBoard = (() => {
         } 
     }));
     
-    btn.addEventListener('click', (e) => {
+    btn.addEventListener('click', () => {
         modal.style.display = "none";
         gameStart.cellsLeft = 9;
         gameStart.active = gameStart.playerOne;
