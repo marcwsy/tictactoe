@@ -1,6 +1,8 @@
+// factory function I can reuse for the game
 const playersFactory = (name, marker) => {
     return { name, marker };
 };
+console.log(playersFactory);
 
 const gameBoard = (() => {
     const board = ['','','','','','','','','']
@@ -22,13 +24,16 @@ const gameBoard = (() => {
             } else if (gameStart.cellsLeft == 0) {
                 (gameStart.winner == false)
                 modal.style.display = "block";
-                text.textContent += `it's a tie!`;                
+                text.textContent += `it's a tie!`;
+                console.log(text.textContent);                
             }
         } else{
             (gameStart.winner == true) 
                 modal.style.display = "block";
                 text.textContent += `${gameStart.active.name} wins`;
-        } 
+                console.log(text.textContent);
+
+        }
     }));
     
     btn.addEventListener('click', () => {
@@ -58,8 +63,10 @@ const gameStart = (() => {
     const display = document.querySelector('.display');
 
     let active = playerOne;
+
     function swapPlayer() {
         this.active === playerOne ? this.active = playerTwo : this.active = playerOne;
+        console.log(active);
     };
 
     function displayPlayer() {
@@ -80,7 +87,7 @@ const gameStart = (() => {
     ];
 
     function checkWin() {
-        winCombo.forEach((item, index) => {
+        winCombo.forEach((item) => {
             if (gameBoard.board[item[0]] === this.active.marker && gameBoard.board[item[1]] === this.active.marker && gameBoard.board[item[2]] === this.active.marker) {
                 this.winner = true
             }
